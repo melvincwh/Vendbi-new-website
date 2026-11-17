@@ -1,0 +1,5 @@
+---
+interface Props {title?:string; description?:string}
+const {title='Your next chapter starts with a clearer view.',description='Tell us about your vending business. Let’s explore the right setup together.'}=Astro.props;
+---
+<section class="cta-section"><div class="container cta-inner"><div><p class="eyebrow">LET’S TALK POSSIBILITIES</p><h2>{title}</h2><p>{description}</p></div><a class="btn btn-white" href="/book-demo/">Book a Demo <span aria-hidden="true">↗</span></a></div></section>

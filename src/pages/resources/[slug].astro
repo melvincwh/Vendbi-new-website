@@ -1,0 +1,6 @@
+---
+import Layout from '../../layouts/Layout.astro';import CTA from '../../components/CTA.astro';import {guides} from '../../data/content';
+export function getStaticPaths(){return guides.map(guide=>({params:{slug:guide.slug},props:{guide}}));}
+const {guide}=Astro.props;
+---
+<Layout title={guide.title} description={guide.description}><section class="page-hero"><div class="container reading-width"><a class="text-link" href="/resources/">← All resources</a><p class="eyebrow mt-8">{guide.category} / FIELD NOTES</p><h1>{guide.title}</h1><p>{guide.description}</p></div></section><article class="container reading-width article-body">{guide.sections.map(([title,text])=><section><h2>{title}</h2><p>{text}</p></section>)}<aside class="info-note"><p>This guide offers general planning considerations. It does not confirm specific VendBI capabilities, device compatibility or VBN commercial terms.</p></aside><a class="text-link" href="/book-demo/">Discuss your operation ↗</a></article><CTA/></Layout>

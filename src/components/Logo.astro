@@ -1,0 +1,5 @@
+---
+interface Props {light?:boolean}
+const {light=false}=Astro.props;
+---
+<a class:list={['brand',{light}]} href="/" aria-label="VendBI home"><span class="brand-symbol" aria-hidden="true">V<span>Bi</span></span><span>vend<span class="brand-bi">Bi</span><span class="brand-dot">.</span></span></a>

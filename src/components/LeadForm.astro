@@ -1,0 +1,39 @@
+---
+interface Props {kind?:'demo'|'vbn'|'contact'}
+const {kind='demo'}=Astro.props;
+const enabled=import.meta.env.PUBLIC_LEADS_ENABLED==='true';
+const siteKey=import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
+---
+<form class="lead-form" data-lead-form data-kind={kind} data-enabled={String(enabled && !!siteKey)} aria-label={kind==='vbn'?'VBN partner interest':kind==='contact'?'Contact enquiry':'Book a demo'}>
+<div class="form-heading"><span class="eyebrow">{kind==='vbn'?'NETWORK PARTNER INTEREST':kind==='contact'?'START A CONVERSATION':'LET’S MEET YOUR BUSINESS'}</span><h2>{kind==='vbn'?'Explore your screen potential.':kind==='contact'?'How can we help?':'Get a personalised walkthrough.'}</h2><p>{kind==='vbn'?'Share a few details so eligibility can be assessed. Registration does not guarantee acceptance or campaigns.':'Tell us what matters to your operation. We’ll use these details to discuss your requirements.'}</p></div>
+{!(enabled && siteKey) && <p class="form-notice" role="note">Enquiries are not accepting submissions yet. Secure delivery and privacy details must be configured before launch. No information entered here will be sent.</p>}
+<div class="form-grid"><label>Full name <span aria-hidden="true">*</span><input name="name" autocomplete="name" required maxlength="120"/></label><label>Company <span aria-hidden="true">*</span><input name="company" autocomplete="organization" required maxlength="160"/></label><label>Work email <span aria-hidden="true">*</span><input name="email" type="email" autocomplete="email" required maxlength="254"/></label><label>Phone <span class="optional">(optional)</span><input name="phone" type="tel" autocomplete="tel" maxlength="40"/></label><label>Country / city <span aria-hidden="true">*</span><input name="location" autocomplete="address-level2" required maxlength="160"/></label><label>Number of machines <span aria-hidden="true">*</span><select name="fleet" required><option value="">Select fleet size</option><option>Planning my first machine</option><option>1–10 machines</option><option>11–50 machines</option><option>51–200 machines</option><option>201+ machines</option></select></label>
+{kind==='vbn'?<><label>Screen size and type<input name="screens" placeholder="e.g. 22-inch landscape display" maxlength="200"/></label><label>Location categories<input name="locations" placeholder="e.g. offices, retail, campuses" maxlength="300"/></label></>:<label class="full">Your interest<select name="interest"><option>Vending management software</option><option>Business intelligence</option><option>Enterprise deployment / integrations</option><option>VBN advertising opportunity</option><option>Existing customer support</option><option>Other</option></select></label>}
+<label class="full">Current machines / software <span class="optional">(optional)</span><input name="hardware" maxlength="300" placeholder="Tell us about your current setup"/></label><label class="full">{kind==='vbn'?'Anything else about your screens?':'What would you like to discuss?'}<textarea name="message" rows="4" maxlength="3000"></textarea></label></div>
+<div class="honeypot" aria-hidden="true"><label>Leave this field empty<input name="website" tabindex="-1" autocomplete="off"/></label></div><label class="consent"><input type="checkbox" name="consent" required/><span>I agree that my details may be used to respond to this enquiry, as described in the <a href="/privacy/">privacy notice</a>. <span aria-hidden="true">*</span></span></label>
+{enabled && siteKey && <div class="cf-turnstile" data-sitekey={siteKey} data-action={kind}></div>}
+<button class="btn" type="submit" disabled={!(enabled && siteKey)}>{kind==='vbn'?'Register Partner Interest':kind==='contact'?'Send Enquiry':'Request a Demo'} <span aria-hidden="true">↗</span></button><p class="form-status" role="status" aria-live="polite" tabindex="-1"></p><noscript><p>JavaScript is required for secure submission. Please enable it to submit this form.</p></noscript>
+</form>
+{enabled && siteKey && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+<script>
+document.querySelectorAll<HTMLFormElement>('[data-lead-form]').forEach(form=>{
+ const start=Date.now();
+ form.addEventListener('submit',async event=>{
+  event.preventDefault();
+  const status=form.querySelector<HTMLElement>('.form-status')!;
+  if(form.dataset.enabled!=='true'){status.textContent='Submission is not configured yet. No data was sent.';return;}
+  if(!form.reportValidity())return;
+  const button=form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+  const label=button.textContent;
+  const data=Object.fromEntries(new FormData(form).entries());
+  const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),20000);
+  button.disabled=true;button.textContent='Sending…';form.setAttribute('aria-busy','true');status.textContent='Sending your enquiry securely…';
+  try{
+   const response=await fetch('/api/leads',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...data,kind:form.dataset.kind,elapsed:Date.now()-start}),signal:controller.signal});
+   if(!response.ok)throw new Error(response.status===429?'Please wait before trying again.':response.status===503?'Enquiries are temporarily unavailable. Please try again later.':'Your enquiry could not be confirmed. Please try again.');
+   status.textContent='Thank you. Your enquiry has been received. The team can now review your requirements.';form.reset();
+  }catch(error){status.textContent=error instanceof Error && error.name!=='AbortError'?error.message:'We could not confirm delivery. Please try again later.';}
+  finally{clearTimeout(timeout);button.disabled=false;button.textContent=label;form.removeAttribute('aria-busy');status.focus();const ts=(window as unknown as {turnstile?:{reset:()=>void}}).turnstile;ts?.reset();}
+ });
+});
+</script>
