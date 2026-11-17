@@ -9,7 +9,7 @@
 /* Approved image-based brand lockup; white backing preserves contrast on the footer. */
 .brand.brand-image{display:inline-flex;flex-shrink:0;line-height:0;letter-spacing:normal}
 .brand-image img{display:block;width:154px;height:auto}
-.brand-image.light{background:#fff;padding:10px 14px;border-radius:7px;width:fit-content}
+.brand-image.light{background:transparent;padding:0;border-radius:0;width:fit-content}
 .brand-image.light img{width:170px}
 @media(max-width:1200px){.brand-image img{width:139px}}
 @media(max-width:700px){.brand-image img{width:136px}.brand-image.light img{width:160px}}

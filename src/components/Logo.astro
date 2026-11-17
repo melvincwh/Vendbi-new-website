@@ -2,4 +2,4 @@
 interface Props {light?:boolean}
 const {light=false}=Astro.props;
 ---
-<a class:list={['brand','brand-image',{light}]} href="/" aria-label="VendBI home"><img src="/brand/vendbi-logo.webp" width="760" height="277" alt="VendBI" loading="eager" decoding="async"/></a>
+<a class:list={['brand','brand-image',{light}]} href="/" aria-label="VendBI home"><img src={light ? "/brand/vendbi-logo-white.webp" : "/brand/vendbi-logo.webp"} width="760" height={light ? 278 : 277} alt="VendBI" loading="eager" decoding="async"/></a>
