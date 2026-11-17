@@ -1,8 +1,12 @@
+export const mobileApps = {ios:'https://apps.apple.com/my/app/vendbi/id6740188481',android:'https://play.google.com/store/apps/details?id=com.vendbi'};
+
 export const generalFaq = [
 {q:'What is VendBI?',a:'VendBI is a vending management and business intelligence software brand. A demo is the best way to confirm the workflows and capabilities available for your operation.'},
-{q:'Will VendBI work with my vending machines?',a:'Compatibility depends on machine hardware, connectivity and the functions you need. Share your machine models and software setup so the team can assess suitability before you commit.'},
+{q:'Will VendBI work with my vending machines?',a:'VendBI supports compatible TCN and XY vending machines, with XY referring to the manufacturer at xyvend.com. Share your model and controller details so compatibility and installation requirements can be confirmed before onboarding.'},
 {q:'Is advertising income included with VendBI?',a:'No. VBN is a distinct advertising network. Screen participation is subject to eligibility, integration readiness, onboarding, advertiser demand and agreed commercial terms. Revenue is not guaranteed.'},
 {q:'Where do existing customers log in?',a:'The management portal is hosted separately at https://app.vendbi.com/ops/. Use Portal Login in the navigation or footer to go directly there.'},
+{q:'Can I manage my machines from my phone?',a:'Yes. VendBI software is installed on compatible vending machines, and operations are managed through the VendBI mobile app, available on Android and iOS. Download links are provided on the platform and How It Works pages.'},
+{q:'Can operators outside Malaysia use VendBI?',a:'VendBI serves operators worldwide using compatible machines and provides remote software support. This does not include a promise of on-site hardware service. Machine compatibility and setup requirements are confirmed before onboarding.'},
 {q:'How much does VendBI cost?',a:'Current pricing, billing currencies and package scope need confirmation. Request a conversation about your fleet size, hardware and requirements; no public prices are quoted here.'},
 {q:'Is VBN connectivity available now?',a:'Production availability, supported screens and launch geographies have not been confirmed for this website. Register interest to discuss readiness and eligibility; registration is not activation.'}
 ];

@@ -16,3 +16,12 @@
 ## Source precedence
 
 The pasted project request and subsequent direct portal requirement govern implementation. The DOCX is a strategic reference, with unverified product claims and proposed commercial content. Its Framer stack, speculative readiness and approval workflow are not treated as direct instructions overriding the requested Astro stack or the user's deployment restriction.
+
+## Confirmed directly by the business owner
+
+- Worldwide operator adoption with remote software support. No on-site hardware service claim.
+- VendBI software installs on compatible TCN and XY machines; operations are managed through the mobile app. XY manufacturer: https://www.xyvend.com/.
+- Android listing: https://play.google.com/store/apps/details?id=com.vendbi
+- iOS listing: https://apps.apple.com/my/app/vendbi/id6740188481
+- Whether every TCN/XY model/controller is supported remains unconfirmed; copy qualifies compatibility.
+- Store links are owner-supplied. Country-specific store availability is not independently established.

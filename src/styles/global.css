@@ -13,3 +13,14 @@
 .brand-image.light img{width:170px}
 @media(max-width:1200px){.brand-image img{width:139px}}
 @media(max-width:700px){.brand-image img{width:136px}.brand-image.light img{width:160px}}
+/* Text-based links to official app stores; no unofficial store-badge artwork. */
+.app-links{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0 28px}
+.app-links>a{display:flex;flex-direction:column;justify-content:center;min-width:150px;min-height:64px;padding:10px 17px;background:var(--navy);color:white;border:1px solid #526c80;border-radius:7px;line-height:1.4}
+.app-links>a>span{font-size:10px;color:#c6d8e5}
+.app-links strong{font-size:18px;font-weight:600;letter-spacing:-.4px}
+.app-links strong>span{font-size:14px;margin-left:16px;color:#89decd}
+.app-links a:hover{background:#1a3c5e;border-color:#78c5b6}
+.footer-apps{padding:0 0 24px}
+.footer-apps>p{font-size:12px;color:#adbfce;margin-bottom:12px}
+.footer-apps .app-links{margin:0}
+@media(max-width:360px){.app-links>a{min-width:140px;padding:10px 13px}}
