@@ -1,6 +1,6 @@
 # Published VendBI app screenshots
 
-Used at the business owner’s request from their official app listings. Images are resized/re-encoded for web delivery without changing interface content, numbers, colours or text. Store artwork includes illustrative handset frames and example data; it is not customer-performance evidence. Google Play artwork itself shows iPhone-style framing, so captions identify the source listing rather than asserting an Android-specific interface.
+Used at the business owner’s request from their official app listings. Images are resized/re-encoded for web delivery without changing interface content, numbers, colours or UI text. A CSS viewport crops away the promotional headings and surrounding listing background at the business owner’s request; original files remain intact. Store artwork includes illustrative handset frames and example data; it is not customer-performance evidence. Google Play artwork itself shows iPhone-style framing, so captions identify the source listing rather than asserting an Android-specific interface.
 
 | Asset | Source listing | Original image |
 |---|---|---|

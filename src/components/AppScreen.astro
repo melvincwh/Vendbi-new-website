@@ -1,0 +1,8 @@
+---
+import { screenshots } from '../data/screenshots';
+interface Props {id:string;alt?:string;eager?:boolean}
+const {id,alt,eager=false}=Astro.props;
+const shot=screenshots.find(s=>s.id===id)!;
+const {crop}=shot;
+---
+<div class="screen-crop" style={`aspect-ratio:${crop.width}/${crop.height};`}><img src={shot.src} width={shot.width} height={shot.height} alt={alt || `VendBI ${shot.title.toLowerCase()}: ${shot.description}`} loading={eager?'eager':'lazy'} fetchpriority={eager?'high':undefined} decoding="async" style={`position:absolute;width:${shot.width/crop.width*100}%;max-width:none;height:auto;left:${-crop.x/crop.width*100}%;top:${-crop.y/crop.height*100}%;`}/></div>

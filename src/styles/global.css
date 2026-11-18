@@ -24,7 +24,7 @@
 .footer-apps>p{font-size:12px;color:#adbfce;margin-bottom:12px}
 .footer-apps .app-links{margin:0}
 @media(max-width:360px){.app-links>a{min-width:140px;padding:10px 13px}}
-/* Real app listing artwork, displayed uncropped with its original screen content. */
+/* Published app artwork; AppScreen selects the handset area without altering interface pixels. */
 .hero-app-visual{position:relative;min-width:0;height:540px;display:flex;align-items:center;justify-content:center;isolation:isolate}
 .hero-app-orbit{position:absolute;width:460px;height:460px;max-width:100%;border:1px solid #c3dcd7;border-radius:50%;background:radial-gradient(circle,#def1eb,transparent 68%);z-index:-1}
 .hero-app-screen{margin:0;width:42%;max-width:218px;border-radius:16px;overflow:hidden;box-shadow:0 18px 45px #112a4618;border:1px solid #d7e7ea;background:white}
@@ -44,3 +44,8 @@
 @media(max-width:1020px){.hero-app-visual{height:470px}.hero-app-screen{width:45%}.hero-app-caption{font-size:9px}.published-preview{padding:24px}.app-screenshot-track{gap:18px}.app-screenshot-track figure{flex-basis:calc((100% - 36px)/3)}}
 @media(max-width:700px){.hero-app-visual{height:auto;min-height:440px;margin:15px 0 10px;padding:25px 8px 45px}.hero-app-screen{width:47%;max-width:205px}.hero-app-screen-primary{transform:translate(4px,-9px) rotate(-4deg)}.hero-app-screen-secondary{transform:translate(-3px,11px) rotate(4deg)}.hero-app-caption{bottom:0}.published-preview{padding:24px 16px}.published-heading{display:block}.published-label{display:inline-block;margin-top:15px}.published-heading h3{font-size:25px}.app-screenshot-track{gap:18px}.app-screenshot-track figure{flex-basis:80%;max-width:300px}.feature-screenshot{width:min(100%,300px)}.published-intro{font-size:13px}}
 @media(max-width:360px){.hero-app-visual{min-height:370px}}
+/* Show only the handset/UI area, leaving listing headlines outside the viewport. */
+.screen-crop{position:relative;display:block;width:100%;overflow:hidden;border-radius:15% / 7.5%;background:#0b0b0b}
+.hero-app-screen{background:transparent;border:0;border-radius:15% / 7.5%;box-shadow:0 18px 35px #112a4622}
+.app-screenshot-track figure>a{border:0;border-radius:15% / 7.5%;background:transparent;max-width:250px}
+.feature-screenshot>a{border:0;border-radius:15% / 7.5%;background:transparent}
