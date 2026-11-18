@@ -3,7 +3,7 @@
 - Confirm software provider/legal company name, address, official support and privacy contact.
 - Approve privacy/terms with retention, legal basis, processors, rights and transfer information. Keep lead collection disabled until complete.
 - Approve feature matrix: sales fields/update frequency, inventory, alerts, remote controls, location/role support, supported hardware and integrations. Public copy currently frames these as areas to confirm, rather than verified availability.
-- Supply approved product screenshots; replace distinctly labelled concepts/placeholders. User approved an AI-edited horizontal logo based on supplied references; it is now installed in the header/footer, with an icon crop for the favicon. Retain an original vector master when supplied.
+- Official app-listing screenshots supplied by the business owner’s links are now installed on the homepage, platform and feature pages; see SCREENSHOT-SOURCES.md. Additional screenshots may be supplied for functionality not shown in those listings. User approved an AI-edited horizontal logo based on supplied references; it is now installed in the header/footer, with an icon crop for the favicon. Retain an original vector master when supplied.
 - Confirm pricing, billing currencies, scope, trial terms and contracts. No prices invented.
 - Confirm VBN operational/pilot/planned status, countries, screens/protocols, site criteria, campaign responsibilities, reporting and commercial terms. Forms express interest only.
 - Confirm advertiser/support routing. No fictional email, phone, address or calendar has been created.

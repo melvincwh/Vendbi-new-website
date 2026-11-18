@@ -11,3 +11,10 @@
 - GitHub CLI exists but its configured token is invalid. Local Git source is created; no GitHub remote repository has been created or pushed.
 
 See README.md for setup and Cloudflare Pages deployment and CONTENT-REVIEW.md for remaining factual/legal configuration.
+
+## App listing screenshot update
+
+- Replaced the homepage concept machine/dashboard previews and feature placeholders with six actual published app screenshots, drawn from both official store listings.
+- Store artwork is displayed uncropped, resized and WebP-encoded only. Source image URLs and interpretation limits are recorded in SCREENSHOT-SOURCES.md.
+- Build and Astro checks passed with zero errors, warnings or hints. Generated-site validation passed for 20 pages and 795 internal links/assets, including screenshot full-size links and portal navigation.
+- Desktop/mobile CSS was reviewed in source; browser visual QA remains unavailable in this managed environment.
