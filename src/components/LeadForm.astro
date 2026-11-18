@@ -31,6 +31,7 @@ document.querySelectorAll<HTMLFormElement>('[data-lead-form]').forEach(form=>{
   try{
    const response=await fetch('/api/leads',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...data,kind:form.dataset.kind,elapsed:Date.now()-start}),signal:controller.signal});
    if(!response.ok)throw new Error(response.status===429?'Please wait before trying again.':response.status===503?'Enquiries are temporarily unavailable. Please try again later.':'Your enquiry could not be confirmed. Please try again.');
+   document.dispatchEvent(new CustomEvent('vendbi:lead-success',{detail:{kind:form.dataset.kind}}));
    status.textContent='Thank you. Your enquiry has been received. The team can now review your requirements.';form.reset();
   }catch(error){status.textContent=error instanceof Error && error.name!=='AbortError'?error.message:'We could not confirm delivery. Please try again later.';}
   finally{clearTimeout(timeout);button.disabled=false;button.textContent=label;form.removeAttribute('aria-busy');status.focus();const ts=(window as unknown as {turnstile?:{reset:()=>void}}).turnstile;ts?.reset();}
